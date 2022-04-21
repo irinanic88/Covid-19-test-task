@@ -13,7 +13,13 @@ export const loadSummary = () => async (dispatch) => {
     });
 
     try {
-        const data = await fetch(summaryURL).then(res => res.json());
+        const data = await fetch(summaryURL).then(res => {
+            if (res.status < 300) {
+                return res.json();
+            } else {
+                throw new Error();
+            }
+        });
 
         dispatch({
             type: `${LOAD_SUMMARY}__${SUCCESS}`,
