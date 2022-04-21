@@ -2,7 +2,7 @@ We have open RESTful APIs to get the real-time data of COVID-19 cases all over t
 
 You can find the APIs at https://documenter.getpostman.com/view/10808728/SzS8rjbc
 
-You can use any preferred language / platform and implement any type of database to store the above data locally. 
+You can use any preferred language / platform and implement any type of database to index the above data locally. 
 
 The solution should be performant and scalable.
 
