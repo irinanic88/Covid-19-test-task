@@ -1,0 +1,36 @@
+@import '../../assets/scss/variables';
+
+.table {
+  margin-top: 50px;
+  width: 100%;
+  border-collapse: collapse;
+  background-color: $light-grey;
+
+  th, td {
+    border: 2px solid $white;
+  }
+
+  th {
+    padding: 10px;
+    font-size: 18px;
+    background-color: $grey;
+  }
+
+  td {
+    padding: 7px;
+    text-align: center;
+  }
+
+  tr td:first-child {
+    padding-left: 15px;
+    text-align: left;
+    font-weight: 700;
+  }
+
+  tr:hover {
+    background-color: $blue;
+    color: $white;
+  }
+
+}
+
