@@ -1,9 +1,8 @@
-import { LOAD_SUMMARY } from '../actionTypes';
+import { SUCCESS, LOAD_SUMMARY } from '../actionTypes';
 
 const summaryReducer = (state = [], action) => {
     switch (action.type) {
-        case LOAD_SUMMARY:
-            console.log(action.error);
+        case `${LOAD_SUMMARY}__${SUCCESS}`:
 
             const { Countries: summary } = action.data;
             return summary;
