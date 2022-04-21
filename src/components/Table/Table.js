@@ -6,6 +6,7 @@ import { summarySelector } from '../../store/selectors';
 const Table = () => {
     const { loadSummary } = useActions();
     const summary = useSelector(summarySelector);
+    console.log(summary);
 
     useEffect(() => {
         if (summary.length === 0) {
