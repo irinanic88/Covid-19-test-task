@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import useActions from '../../hooks/useActions';
 import { useSelector } from 'react-redux';
 import { summarySelector } from '../../store/selectors';
+import styles from './Table.module.scss';
 
 const Table = () => {
     const { loadSummary } = useActions();
@@ -18,7 +19,7 @@ const Table = () => {
     }
 
     return (
-        <table>
+        <table className={styles.table}>
             <thead>
             <tr>
                 <th>Country</th>
@@ -30,11 +31,11 @@ const Table = () => {
             </thead>
             <tbody>
             {
-                summary.map((row, index) => {
+                summary.map( row => {
                     const { ID, Country, TotalConfirmed, TotalRecovered, TotalDeaths } = row;
                     const Active = TotalConfirmed - TotalRecovered - TotalDeaths;
                     return (
-                        <tr key={`${Country}-${index}`}>
+                        <tr key={ID}>
                             <td>{Country}</td>
                             <td>{TotalConfirmed}</td>
                             <td>{Active}</td>
