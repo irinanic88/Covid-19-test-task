@@ -1,6 +1,11 @@
+import React from 'react';
+import Table from '../Table/Table';
+
 const App = () => {
     return (
-        <div>Hello world!</div>
+        <div>
+            <Table/>
+        </div>
     )
 }
 
