@@ -5,6 +5,9 @@ import Loader from '../Loader/Loader';
 import Table from '../Table/Table';
 import styles from './App.module.scss';
 
+import Modal from '../Modal/Modal';
+import Graph from '../Graph/Graph';
+
 const App = () => {
     const isLoading = useSelector(loadingStateSelector);
     const error = useSelector(errorSelector);
@@ -19,6 +22,7 @@ const App = () => {
         <div className={styles.app}>
             { isLoading && <Loader/> }
             <Table/>
+            <Modal children={<Graph slug={'this is slug'} country={'Spain'} caseType={'confirmed'}/>}/>
         </div>
     )
 }
