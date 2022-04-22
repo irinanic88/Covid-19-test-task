@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { loadingStateSelector, errorSelector } from '../../store/selectors';
 import Loader from '../Loader/Loader';
 import Table from '../Table/Table';
+import styles from './App.module.scss';
 
 const App = () => {
     const isLoading = useSelector(loadingStateSelector);
@@ -15,7 +16,7 @@ const App = () => {
     }, [error]);
 
     return (
-        <div>
+        <div className={styles.app}>
             { isLoading && <Loader/> }
             <Table/>
         </div>
