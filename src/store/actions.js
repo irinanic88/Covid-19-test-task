@@ -3,7 +3,9 @@ import {
     REQUEST,
     SUCCESS,
     FAILURE,
-    LOAD_SUMMARY
+    LOAD_SUMMARY,
+    OPEN_MODAL,
+    CLOSE_MODAL
 } from './actionTypes';
 
 export const loadSummary = () => async (dispatch) => {
@@ -34,3 +36,12 @@ export const loadSummary = () => async (dispatch) => {
         })
     }
 }
+
+export const openModal = (slug, country) => ({
+    type: `${OPEN_MODAL}`,
+    data: {slug, country}
+});
+
+export const closeModal = () => ({
+    type: `${CLOSE_MODAL}`
+});

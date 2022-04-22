@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import { useSelector } from 'react-redux';
-import { loadingStateSelector, errorSelector } from '../../store/selectors';
+import { loadingStateSelector, errorSelector, modalSelector } from '../../store/selectors';
 import Loader from '../Loader/Loader';
 import Table from '../Table/Table';
 import styles from './App.module.scss';
@@ -11,6 +11,9 @@ import Graph from '../Graph/Graph';
 const App = () => {
     const isLoading = useSelector(loadingStateSelector);
     const error = useSelector(errorSelector);
+    const modal = useSelector(modalSelector);
+
+    const { display: modalDisplay, params: modalParams } = modal;
 
     useEffect(() => {
         if (error) {
@@ -22,7 +25,10 @@ const App = () => {
         <div className={styles.app}>
             { isLoading && <Loader/> }
             <Table/>
-            <Modal children={<Graph slug={'this is slug'} country={'Spain'} caseType={'confirmed'}/>}/>
+            {
+                modalDisplay &&
+                <Modal children={<Graph slug={modalParams.slug} country={modalParams.country} caseType={'confirmed'}/>}/>
+            }
         </div>
     )
 }

@@ -5,7 +5,7 @@ import { summarySelector } from '../../store/selectors';
 import styles from './Table.module.scss';
 
 const Table = () => {
-    const { loadSummary } = useActions();
+    const { loadSummary, openModal } = useActions();
     const summary = useSelector(summarySelector);
 
     useEffect(() => {
@@ -16,6 +16,10 @@ const Table = () => {
 
     if (summary.length === 0) {
         return <div/>
+    }
+
+    const handleRowClick = (slug, country) => {
+        openModal(slug, country);
     }
 
     return (
@@ -32,10 +36,10 @@ const Table = () => {
             <tbody>
             {
                 summary.map( row => {
-                    const { ID, Country, TotalConfirmed, TotalRecovered, TotalDeaths } = row;
+                    const { ID, Slug, Country, TotalConfirmed, TotalRecovered, TotalDeaths } = row;
                     const Active = TotalConfirmed - TotalRecovered - TotalDeaths;
                     return (
-                        <tr key={ID}>
+                        <tr key={ID} onClick={() => handleRowClick(Slug, Country)}>
                             <td>{Country}</td>
                             <td>{TotalConfirmed}</td>
                             <td>{Active}</td>
