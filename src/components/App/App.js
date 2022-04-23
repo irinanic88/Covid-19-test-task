@@ -22,7 +22,7 @@ const App = () => {
     }, [error]);
 
     return (
-        <div className={styles.app}>
+        <div className={styles.app} data-id="app">
             { isLoading && <Loader/> }
             <Table/>
             {
