@@ -1,9 +1,13 @@
 import React from 'react';
-import { capitalize } from '../../utils/functions';
+import { capitalize, setStartDayString } from '../../utils/functions';
 import { LineChart, XAxis, YAxis, Line, Tooltip, Legend, CartesianGrid } from 'recharts';
 import styles from './Graph.module.scss';
 
 const Graph = ({slug, country, caseType}) => {
+
+
+    const monthsDiscount = 6;
+    const startDayString = setStartDayString(monthsDiscount);
 
     //temporary mock
     const data = [
@@ -15,7 +19,7 @@ const Graph = ({slug, country, caseType}) => {
     return (
         <div className={styles.graph}>
             <h2 className={styles.graph__title}>
-                {capitalize(caseType)} cases trend for last 6 months in {country}
+                {capitalize(caseType)} cases trend for last ${monthsDiscount} months in {country}
             </h2>
             <LineChart className={styles.graph__lineChart}
                        width={730}
