@@ -1,13 +1,36 @@
-import React from 'react';
-import { capitalize, setStartDayString } from '../../utils/functions';
-import { LineChart, XAxis, YAxis, Line, Tooltip, Legend, CartesianGrid } from 'recharts';
+import React, { useEffect } from 'react';
+import useActions from '../../hooks/useActions';
+import { useSelector } from 'react-redux';
+import { slugTrendSelector } from '../../store/selectors';
+import {
+    capitalize,
+    setStartDayString
+} from '../../utils/functions';
+import {
+    LineChart,
+    XAxis,
+    YAxis,
+    Line,
+    Tooltip,
+    Legend,
+    CartesianGrid
+} from 'recharts';
 import styles from './Graph.module.scss';
 
 const Graph = ({slug, country, caseType}) => {
-
+    const { loadSlugTrend } = useActions();
 
     const monthsDiscount = 6;
     const startDayString = setStartDayString(monthsDiscount);
+
+    const graphData = useSelector(slugTrendSelector(slug, caseType));
+    console.log(graphData);
+
+    useEffect(() => {
+        if (!graphData) {
+            loadSlugTrend(slug, caseType, startDayString);
+        }
+    }, []);
 
     //temporary mock
     const data = [

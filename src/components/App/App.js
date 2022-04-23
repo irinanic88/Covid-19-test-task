@@ -27,7 +27,12 @@ const App = () => {
             <Table/>
             {
                 modalDisplay &&
-                <Modal children={<Graph slug={modalParams.slug} country={modalParams.country} caseType={'confirmed'}/>}/>
+                <Modal children={
+                    <Graph slug={modalParams.slug}
+                           country={modalParams.country}
+                           caseType={'confirmed'}/>
+                }
+                />
             }
         </div>
     )
