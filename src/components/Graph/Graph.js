@@ -24,7 +24,7 @@ const Graph = ({slug, country, caseType}) => {
     const startDayString = setStartDayString(monthsDiscount);
 
     const graphData = useSelector(slugTrendSelector(slug, caseType));
-    console.log(graphData);
+
 
     useEffect(() => {
         if (!graphData) {
@@ -32,32 +32,37 @@ const Graph = ({slug, country, caseType}) => {
         }
     }, []);
 
-    //temporary mock
-    const data = [
-        {month: 'January', confirmed: 45}, {month: 'February', confirmed: 68}, {month: 'March', confirmed: 34},
-        {month: 'April', confirmed: 11}, {month: 'May', confirmed: 24}, {month: 'June', confirmed: 16}
-    ];
+    if (!graphData) {
+        return <div/>
+    }
 
+    const minDomain = graphData[0].Confirmed;
+    const maxDomain = graphData[graphData.length - 1].Confirmed;
 
     return (
         <div className={styles.graph}>
             <h2 className={styles.graph__title}>
-                {capitalize(caseType)} cases trend for last ${monthsDiscount} months in {country}
+                {`${capitalize(caseType)} cases trend for last ${monthsDiscount} months in ${country}`}
             </h2>
             <LineChart className={styles.graph__lineChart}
                        width={730}
                        height={250}
-                       data={data}
+                       data={graphData}
             >
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="month" />
-                <YAxis dataKey="confirmed" />
+                <CartesianGrid strokeDasharray="3 3"/>
+                <XAxis dataKey="Date"
+                       interval={30}
+                />
+                <YAxis dataKey="Confirmed"
+                       domain={[minDomain, maxDomain]}
+                />
                 <Tooltip />
                 <Legend />
-                <Line className={styles.graph__line}
-                      type="monotone"
-                      dataKey={caseType}
+                <Line type="monotone"
+                      dataKey="Confirmed"
                       stroke="#f28f3b"
+                      strokeWidth={2}
+                      dot={false}
                 />
             </LineChart>
         </div>

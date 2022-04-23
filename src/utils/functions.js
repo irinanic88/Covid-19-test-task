@@ -16,3 +16,21 @@ export const setStartDayString = (monthsDiscount) => {
 
     return `${startDateISOFormat.split('.')[0]}Z`;
 }
+
+const formatDateString = (ISOdate) => {
+    const date = new Date(Date.parse(ISOdate));
+    const year =  date.getFullYear();
+    const month =  date.getMonth() + 1;
+    const day =  date.getDate();
+    return `${year}-${month}-${day}`;
+}
+
+export const filterDataArray = (arr) => {
+    return arr.map(objItem => {
+        const { Date, Confirmed } = objItem;
+        return ({
+            Date: formatDateString(Date),
+            Confirmed
+        });
+    });
+}

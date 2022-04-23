@@ -1,4 +1,5 @@
 import { LOAD_SLUG_TREND, SUCCESS } from '../actionTypes';
+import { filterDataArray } from '../../utils/functions';
 
 const slugTrendReducer = (state = {}, action) => {
     switch (action.type) {
@@ -7,7 +8,7 @@ const slugTrendReducer = (state = {}, action) => {
                 ...state,
                 [action.slug]: {
                     cases: {
-                        [action.caseType]: action.data
+                        [action.caseType]: filterDataArray(action.data)
                     }
                 }
             };
