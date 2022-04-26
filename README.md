@@ -1,6 +1,5 @@
 # Phone Catalog (Frontend)
 A table of the real-time data of Covid-19 cases and its trends by country.
-Try it out [here](https://covid-19-cases-table.herokuapp.com/).
 ## Table of contents 
 * [General info](#general-info)
 * [Technologies](#technologies)
