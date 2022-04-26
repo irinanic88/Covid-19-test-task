@@ -27,8 +27,16 @@
     font-weight: 700;
   }
 
-  tr:hover {
-    background-color: $light-blue;
+  tr {
+
+    &:hover {
+      cursor: pointer;
+      background-color: $light-blue;
+    }
+
+    &:active {
+      color: $dark-grey;
+    }
   }
 
 }
