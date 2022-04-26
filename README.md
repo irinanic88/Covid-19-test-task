@@ -1,4 +1,4 @@
-# Phone Catalog (Frontend)
+# Covid-19 cases data
 A table of the real-time data of Covid-19 cases and its trends by country.
 ## Table of contents 
 * [General info](#general-info)
