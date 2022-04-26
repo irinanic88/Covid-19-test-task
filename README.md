@@ -1,22 +1,29 @@
-We have open RESTful APIs to get the real-time data of COVID-19 cases all over the world. 
-
-You can find the APIs at https://documenter.getpostman.com/view/10808728/SzS8rjbc
-
-You can use any preferred language / platform and implement any type of database to index the above data locally. 
-
-The solution should be performant and scalable.
-
-Preferred tech stack: Reactjs, Nodejs. You are required to build a dashboard to display some of the following
-
-- Show a list of countries with stats count of Confirmed, Critical, Active, Recovered & Death.
-
-- Show a similar heatmap as link
-
-- Create a plot graph to show the trend of either (Confirmed, Recovered or death) against any
- given country for last 6 months
-
-Recommendations
-
-Publish code over Git and write README how to set up and execute the code.
-
-Use of docker is highly encouraged.
+# Phone Catalog (Frontend)
+A table of the real-time data of Covid-19 cases and its trends by country.
+Try it out [here](https://covid-19-cases-table.herokuapp.com/).
+## Table of contents 
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Setup](#setup)
+## General info
+The project consist of two parts: 
+- A table with a list of countries with stats count of Confirmed, Active, Recovered & Death. On
+ row click the graph is shown.
+- A plot graph that shows the trend of Confirmed cases against any given country for last 6 months
+## Technologies
+Project is created with:
+* React version 17.0.2
+* Redux version 4.2.0
+* Recharts version 2.1.9
+* SASS 1.50.1
+* Enzyme 3.11.0
+## Setup
+To run the project, install it locally using npm:
+```
+$ npm install
+$ npm start
+```
+To run tests:
+```
+$ npm test
+```
